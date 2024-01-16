@@ -14,9 +14,9 @@ function App() {
       <div className={ styles.body }>
         <nav className={ styles.nav }>
           <ul>
-            <li><NavLink to="/page1">Page 1</NavLink></li>
-            <li><NavLink to="/page2">Page 2</NavLink></li>
-            <li><NavLink to="/page3">Page 3</NavLink></li>
+            <li><NavLink className={({isActive}) => isActive ? styles.active : styles.navLink} to="/page1">Page 1</NavLink></li>
+            <li><NavLink className={({isActive}) => isActive ? styles.active : styles.navLink} to="/page2">Page 2</NavLink></li>
+            <li><NavLink className={({isActive}) => isActive ? styles.active : styles.navLink} to="/page3">Page 3</NavLink></li>
           </ul>
         </nav>
         <div className={ styles.content }>
