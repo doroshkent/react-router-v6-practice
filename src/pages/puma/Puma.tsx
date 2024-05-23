@@ -2,6 +2,7 @@ import React from 'react';
 import { CollectionWrapper } from "components/collectionWrapper";
 import { Link } from "react-router-dom";
 import { usePuma } from "pages/puma/usePuma";
+import { PATH } from "App";
 
 export const Puma = () => {
   const { pumaCollection } = usePuma()
@@ -13,7 +14,7 @@ export const Puma = () => {
         {
           pumaCollection.map( i => {
             return (
-              <Link to={ `/puma/${ i.id }` } key={ i.id }>
+              <Link to={ `${PATH.PUMA}/${ i.id }` } key={ i.id }>
                 <img src={ i.picture } alt={ i.model } />
               </Link>
             );

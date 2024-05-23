@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { CollectionWrapper } from "components/collectionWrapper";
 import { useAdidas } from "pages/adidas/useAdidas";
+import { PATH } from "App";
 
 export const Adidas = () => {
   const { adidasCollection } = useAdidas()
@@ -10,7 +11,7 @@ export const Adidas = () => {
       <h2> ADIDAS</h2>
       <CollectionWrapper>
         { adidasCollection.map( (item, index) =>
-          <Link to={ `/adidas/${ item.id }` } key={ index }><img src={ item.picture } alt={ item.model } /></Link> ) }
+          <Link to={ `${PATH.ADIDAS}/${ item.id }` } key={ index }><img src={ item.picture } alt={ item.model } /></Link> ) }
       </CollectionWrapper>
       <p>
         What is Lorem Ipsum?
