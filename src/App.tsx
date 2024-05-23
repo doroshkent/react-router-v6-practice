@@ -6,12 +6,14 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Error404 } from "components/error/Error404";
 import { S } from "App_Styles";
 import { Model } from "components/Model";
+import { Prices } from "pages/prices/Prices";
 
 export const PATH = {
   ADIDAS: '/adidas',
   PUMA: '/puma',
   ABIBAS: '/abibas',
   ERROR: '/page/error',
+  PRICES: '/prices'
 } as const;
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
             <li><S.Link to={ PATH.ADIDAS }>Adidas</S.Link></li>
             <li><S.Link to={ PATH.PUMA }>Puma</S.Link></li>
             <li><S.Link to={ PATH.ABIBAS }>Abibas</S.Link></li>
+            <li><S.Link to={ PATH.PRICES }>Prices</S.Link></li>
           </ul>
         </S.Nav>
         <S.Content>
@@ -33,6 +36,7 @@ function App() {
             <Route path={ PATH.PUMA } element={ <Puma /> } />
             <Route path={ PATH.ABIBAS } element={ <Abibas /> } />
             <Route path={ PATH.ERROR } element={ <Error404 /> } />
+            <Route path={ PATH.PRICES } element={ <Prices /> } />
             <Route path={ ':brand/:id' } element={ <Model/> } />
             <Route path="/*" element={ <Navigate to={ PATH.ERROR } /> } />
           </Routes>
