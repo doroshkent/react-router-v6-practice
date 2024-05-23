@@ -1,52 +1,17 @@
 import React from 'react';
-import adidasModel1 from "assets/images/adidas/AdiFOM_TRXN_Shoes_Black_IG7453_01_standard.webp"
-import adidasModel2 from "assets/images/adidas/Superstar_XLG_Shoes_Black_IG9777_01_standard.webp"
-import adidasModel3
-  from "assets/images/adidas/PostMove_Mid_Cloudfoam_Super_Lifestyle_Basketball_Mid_Classic_Shoes_Black_GY7163_01_standard.webp"
-import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { v4 } from "uuid";
-
-export type AdidasItem = {
-  id: string
-  model: string;
-  collection: string;
-  price: string;
-  picture: string;
-}
-export const adidasArr: AdidasItem[] = [
-  {
-    id: v4(),
-    model: 'ADIDAS ADIFOM TRXN',
-    collection: 'new collection1',
-    price: '100200$',
-    picture: adidasModel1,
-
-  },
-  {
-    id: v4(),
-    model: 'ADIDAS ADIFOM SUPER',
-    collection: 'new collection22',
-    price: '200300$',
-    picture: adidasModel2
-  },
-  {
-    id: v4(),
-    model: 'ADIDAS SUPER SUPERSKI',
-    collection: 'new collection333',
-    price: '300400$',
-    picture: adidasModel3
-  }
-]
+import { CollectionWrapper } from "components/collectionWrapper";
+import { useAdidas } from "pages/adidas/useAdidas";
 
 export const Adidas = () => {
+  const { adidasCollection } = useAdidas()
   return (
     <div>
       <h2> ADIDAS</h2>
-      <Collection>
-        {adidasArr.map((item, index) =>
-          <Link to={`/adidas/${item.id}`} key={index}><img src={item.picture} alt={item.model}/></Link> )}
-      </Collection>
+      <CollectionWrapper>
+        { adidasCollection.map( (item, index) =>
+          <Link to={ `/adidas/${ item.id }` } key={ index }><img src={ item.picture } alt={ item.model } /></Link> ) }
+      </CollectionWrapper>
       <p>
         What is Lorem Ipsum?
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
@@ -88,14 +53,3 @@ export const Adidas = () => {
     </div>
   );
 };
-
-const Collection = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  gap: 10px;
-  img {
-    max-width: 300px;
-    object-fit: cover;
-  }
-`

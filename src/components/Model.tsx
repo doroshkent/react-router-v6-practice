@@ -1,18 +1,19 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
-import { adidasArr } from "pages/Adidas";
-import { Error404 } from "pages/Error404";
+import { Error404 } from "components/error/Error404";
+import { Sneaker } from "common/types/sneaker";
 
-type ModelPropsType = {
-  modelTitle: string
-  collectionTitle: string
-  price: string
-  img: string
+type Props = {
+  collection: Sneaker[]
 }
 
-export const Model = () => {
+export const Model = ({collection}: Props) => {
+  console.log(collection)
   const params = useParams();
-  const model = adidasArr.find( item => item.id === params.id )
+  const model = collection.find( item => item.id === params.id )
+  console.log(params)
+  console.log(model)
+
   return (
     <div>
       {
